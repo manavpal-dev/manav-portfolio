@@ -1,6 +1,6 @@
 // My CV Link
 export const cv =
-  "https://docs.google.com/document/d/18FHSfXmzHn5zmh-U8CdN3in9Z6rvAh4VrW5-jPGAhLI/edit?usp=sharing"; // Keeping original CV link
+  "https://docs.google.com/document/d/1MwrUsJe9s1oZjcDnNfZsv-rkBGrT2oKe7KqA2l5nSZ0/edit?usp=sharing"; // Keeping original CV link
 
 // Social Media (Unchanged)
 export const socialMedia = {
@@ -56,6 +56,7 @@ const vercelLogo = techLogo("vercel.webp");
 // Experience Section Logos
 const jogazLogo = companyLogo("jogaz_logo.webp");
 const concentrixLogo = companyLogo("concentrix_logo.webp");
+const sourceLogo = companyLogo("sourceIntegreta.webp");
 
 // Education Section Logos
 const ignou = educationLogo("ignou.webp");
@@ -147,29 +148,28 @@ export const experiences = [
       "Maintenance & Support",
     ],
   },
-  // {
-  //   id: 1,
-  //   img: jogazLogo,
-  //   role: "Full Stack Developer",
-  //   company: "Jogaz Info Pvt. Ltd.",
-  //   date: "October 2025 - December 2025",
-  //   points: [
-  //     "Working on the development and maintenance of a web-based trading support platform.",
-  //     "Building custom tools and strategy interfaces to help traders configure and manage their workflows.",
-  //     "Developing the frontend using Angular and TypeScript for better structure and type safety.",
-  //     "Integrating frontend components with backend services using REST APIs.",
-  //     "Handling bug fixes, feature enhancements, and regular maintenance to ensure platform stability.",
-  //   ],
-  //   skills: [
-  //     "Angular",
-  //     "TypeScript",
-  //     "REST APIs",
-  //     "Web Application Development",
-  //     "Bug Fixing",
-  //     "Feature Enhancement",
-  //     "Maintenance & Support",
-  //   ],
-  // },
+  {
+    id: 1,
+    img: sourceLogo,
+    role: "Full Stack Developer",
+    company: "Source Integreta IT Solutions Private Limited",
+    date: "July 2026 - Present",
+    points: [
+      "Working as part of the Master System Integration (MSI) team on the Noida International Airport (NIA) project, contributing to integration of critical airport systems.",
+      "Developing and supporting the Smart Trolley system, enabling connected trolley tracking and operations as part of the airport's smart infrastructure.",
+      "Working with IBM MQ for reliable, asynchronous messaging between integrated systems within the MSI architecture.",
+    ],
+    skills: [
+      "IBM MQ",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "REST APIs",
+      "Bug Fixing",
+      "Feature Enhancement",
+      "Maintenance & Support",
+    ],
+  },
 ];
 
 // education Section
@@ -315,7 +315,7 @@ export const projects = [
   },
   {
     id: 4,
-    title: "IGNOU Grade Card Analyzer",
+    title: "IGNOUConnect",
     image: ignouLogo,
     points: [
       "Built a full-stack platform to help IGNOU students analyze academic progress and calculate percentages automatically.",
