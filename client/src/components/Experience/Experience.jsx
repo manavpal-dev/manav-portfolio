@@ -125,7 +125,7 @@ to-transparent
                 {/* MOBILE TIMELINE LOGO */}
                 <div
                   className="
-              absolute
+    absolute
     left-[-5px]
     top-8
     z-20
@@ -139,6 +139,7 @@ to-transparent
     border-2
     border-cyan-400/40
     bg-[#0b0718]
+    p-1
     shadow-[0_0_20px_rgba(34,211,238,0.25)]
     backdrop-blur-xl
 
@@ -154,12 +155,12 @@ to-transparent
                     loading="lazy"
                     decoding="async"
                     className="
-                     h-full
-                   w-full
-                      object-cover
-                   rounded-full
-                    lg:hidden
-    "
+    h-full
+    w-full
+    object-contain
+    p-1
+    lg:hidden
+  "
                     width="48"
                     height="48"
                   />
@@ -203,38 +204,38 @@ to-transparent
                       {/* COMPANY LOGO */}
                       <div
                         className="
-                          relative
-                          flex
-                          h-24
-                          w-24
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-2xl
-                          border
-                          border-white/10
-                          bg-gradient-to-br
-                          from-white/10
-                          to-white/5
-                          p-4
-                          shadow-xl
-                          backdrop-blur-xl
-                        "
+    relative
+    flex
+    h-32
+    w-32
+    shrink-0
+    items-center
+    justify-center
+    rounded-2xl
+    border
+    border-white/10
+    bg-gradient-to-br
+    from-white/10
+    to-white/5
+    p-3
+    shadow-xl
+    backdrop-blur-xl
+  "
                       >
                         {/* INNER GLOW */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/10 to-cyan-500/10" />
+                        <div className="absolute inset-0 rounded-2xl bg-white" />
 
                         <img
                           src={experience.img}
                           alt={experience.company}
                           loading="lazy"
                           className="
-                            relative
-                            z-10
-                            h-full
-                            w-full
-                            object-contain
-                          "
+    relative
+    z-10
+    h-full
+    w-full
+    object-contain
+  "
                         />
                       </div>
 
@@ -359,8 +360,6 @@ to-transparent
               </div>
             ))}
           </div>
-
-
         </div>
       </div>
     </section>

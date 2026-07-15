@@ -54,9 +54,8 @@ const postmanLogo = techLogo("postman.webp");
 const vercelLogo = techLogo("vercel.webp");
 
 // Experience Section Logos
-const jogazLogo = companyLogo("jogaz_logo.webp");
-const concentrixLogo = companyLogo("concentrix_logo.webp");
-const sourceLogo = companyLogo("sourceIntegreta.webp");
+const sourceLogo = companyLogo("source.png");
+const prakharLogo = companyLogo("prakhar.png");
 
 // Education Section Logos
 const ignou = educationLogo("ignou.webp");
@@ -123,7 +122,7 @@ export const SkillsInfo = [
 export const experiences = [
   {
     id: 0,
-    img: "prakhar",
+    img: prakharLogo,
     role: "Full Stack Developer",
     company: "Prakhar Tech World Private Limited",
     date: "July 2025 - Present",
