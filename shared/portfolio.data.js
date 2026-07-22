@@ -13,7 +13,7 @@ export const socialMedia = {
 
 export const contactInfo = {
   email: "manavpal.contact@gmail.com",
-  mobile: "+91 9899698835",
+  // mobile: "+91 9899698835",
 };
 
 const techLogo = (fileName) => `/tech_logo/${fileName}`;
