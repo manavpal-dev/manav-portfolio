@@ -2,7 +2,7 @@ import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import Tilt from "react-parallax-tilt";
 import { ChevronRight, Download } from "lucide-react";
-import { cv } from "../../constants";
+// import { cv } from "../../constants";
 
 const profileImage = "/profile.webp";
 
@@ -86,7 +86,7 @@ const Hero = () => {
                 />
               </a>
 
-              <a
+              {/* <a
                 href={cv}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -94,7 +94,7 @@ const Hero = () => {
               >
                 <Download size={18} />
                 Get Resume
-              </a>
+              </a> */}
             </div>
 
             {/* STATS - Responsive Grid */}

@@ -1,6 +1,6 @@
 // My CV Link
-export const cv =
-  "https://docs.google.com/document/d/1MwrUsJe9s1oZjcDnNfZsv-rkBGrT2oKe7KqA2l5nSZ0/edit?usp=sharing"; // Keeping original CV link
+export const cv = "";
+  // "https://docs.google.com/document/d/1MwrUsJe9s1oZjcDnNfZsv-rkBGrT2oKe7KqA2l5nSZ0/edit?usp=sharing"; // Keeping original CV link
 
 // Social Media (Unchanged)
 export const socialMedia = {
