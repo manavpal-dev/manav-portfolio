@@ -6,19 +6,18 @@ const QuickQuestions = ({ onQuickQuestion, isLoading }) => {
   return (
     <div
       className={`
-        relative
-        z-10
-
         flex
-        gap-3
+        gap-2
 
         overflow-x-auto
 
         border-b
-        border-white/10
+        border-slate-200
+
+        bg-slate-50
 
         px-4
-        py-4
+        py-3
 
         scrollbar-hide
         ${isLoading ? "pointer-events-none opacity-50" : ""}
@@ -39,11 +38,10 @@ const QuickQuestions = ({ onQuickQuestion, isLoading }) => {
             delay: index * 0.08,
           }}
           whileHover={{
-            scale: 1.04,
-            y: -2,
+            y: -1,
           }}
           whileTap={{
-            scale: 0.96,
+            scale: 0.98,
           }}
           onClick={() => {
             if (isLoading) return;
@@ -51,99 +49,36 @@ const QuickQuestions = ({ onQuickQuestion, isLoading }) => {
             onQuickQuestion(item);
           }}
           className="
-              group
-              relative
-
               flex-shrink-0
-
-              overflow-hidden
 
               whitespace-nowrap
 
-              rounded-2xl
+              rounded-md
 
               border
-              border-cyan-400/20
+              border-slate-200
 
-              bg-white/[0.03]
+              bg-white
 
-              px-5
-              py-2.5
+              px-3.5
+              py-2
 
               text-[13px]
               font-medium
 
-              text-cyan-200
+              text-slate-700
 
-              backdrop-blur-xl
+              shadow-sm
 
               transition-all
-              duration-300
+              duration-200
 
-              hover:border-cyan-400/40
-              hover:text-white
-              hover:shadow-[0_0_20px_rgba(34,211,238,0.18)]
+              hover:border-slate-300
+              hover:bg-slate-100
+              hover:text-slate-950
             "
         >
-          {/* Glow Background */}
-          <div
-            className="
-                absolute
-                inset-0
-
-                bg-gradient-to-r
-                from-cyan-500/0
-                via-cyan-400/10
-                to-violet-500/0
-
-                opacity-0
-
-                transition-opacity
-                duration-300
-
-                group-hover:opacity-100
-              "
-          />
-
-          {/* Inner Reflection */}
-          <div
-            className="
-                absolute
-                inset-0
-
-                bg-gradient-to-b
-                from-white/[0.06]
-                to-transparent
-              "
-          />
-
-          {/* Text */}
-          <span className="relative z-10">{item}</span>
-
-          {/* Hover Shine */}
-          <motion.div
-            initial={{
-              x: "-120%",
-            }}
-            whileHover={{
-              x: "120%",
-            }}
-            transition={{
-              duration: 0.7,
-            }}
-            className="
-                absolute
-                inset-y-0
-
-                w-8
-
-                rotate-12
-
-                bg-white/10
-
-                blur-md
-              "
-          />
+          {item}
         </motion.button>
       ))}
     </div>

@@ -1,191 +1,132 @@
 import { useEffect, useRef } from "react";
 
 import { motion } from "framer-motion";
-import { ArrowUp, Sparkles } from "lucide-react";
+import { MessageSquare, SendHorizontal } from "lucide-react";
 
 const ChatInput = ({ input, setInput, onSend, isLoading }) => {
   const inputRef = useRef(null);
 
-  // AUTO FOCUS
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  return (
-    <div
-      className="
-        relative
-        z-20
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
+    if (isLoading || !input.trim()) return;
+
+    onSend();
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="
         border-t
-        border-white/10
+        border-slate-200
+
+        bg-white
 
         p-4
-
-        backdrop-blur-xl
       "
     >
-      {/* Background Reflection */}
       <div
         className="
-          absolute
-          inset-0
-
-          bg-gradient-to-b
-          from-white/[0.02]
-          to-transparent
-        "
-      />
-
-      <div
-        className="
-          relative
-
           flex
           items-center
           gap-3
 
-          overflow-hidden
-
-          rounded-[24px]
+          rounded-lg
 
           border
-          border-white/10
+          border-slate-200
 
-          bg-white/[0.03]
+          bg-slate-50
 
-          px-4
-          py-3
+          px-3
+          py-2.5
 
-          backdrop-blur-2xl
+          transition
+          duration-200
 
-          transition-all
-          duration-300
-
-          focus-within:border-cyan-400/30
-          focus-within:shadow-[0_0_30px_rgba(34,211,238,0.08)]
+          focus-within:border-slate-400
+          focus-within:bg-white
+          focus-within:ring-4
+          focus-within:ring-slate-950/5
         "
       >
-        {/* Left Icon */}
-        <motion.div
-          animate={{
-            opacity: [0.6, 1, 0.6],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-          }}
-        >
-          <Sparkles
-            className="
-              h-4
-              w-4
+        <MessageSquare className="h-4 w-4 shrink-0 text-slate-400" />
 
-              text-cyan-300
-            "
-          />
-        </motion.div>
-
-        {/* INPUT */}
         <input
           ref={inputRef}
           disabled={isLoading}
           value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !isLoading) {
-              onSend();
-            }
-          }}
+          onChange={(event) => setInput(event.target.value)}
           type="text"
-          placeholder={isLoading ? "AI is thinking..." : "Ask AI about Manav..."}
+          placeholder={isLoading ? "AI is replying..." : "Ask about Manav..."}
+          aria-label="Message Manav AI Assistant"
           className="
+            min-w-0
             flex-1
 
+            border-0
             bg-transparent
+            p-0
 
-            text-[15px]
-            text-white
+            text-[14px]
+            font-medium
+            text-slate-950
 
             outline-none
+            ring-0
 
-            placeholder:text-gray-500
+            placeholder:text-slate-400
+
+            focus:border-0
+            focus:ring-0
+
+            disabled:cursor-not-allowed
+            disabled:text-slate-500
           "
         />
 
-        {/* SEND BUTTON */}
         <motion.button
+          type="submit"
           disabled={isLoading || !input.trim()}
-          onClick={onSend}
           whileHover={{
-            scale: 1.06,
+            scale: input.trim() && !isLoading ? 1.03 : 1,
           }}
           whileTap={{
-            scale: 0.92,
+            scale: input.trim() && !isLoading ? 0.96 : 1,
           }}
-          className={`
-            relative
-
+          className="
             flex
-            h-11
-            w-11
-
+            h-9
+            w-9
+            shrink-0
             items-center
             justify-center
 
-            overflow-hidden
+            rounded-md
 
-            rounded-2xl
+            bg-slate-950
 
-            transition-all
-            duration-300
+            text-white
 
-            ${
-              input.trim()
-                ? `
-                  bg-gradient-to-br
-                  from-violet-500
-                  via-fuchsia-500
-                  to-cyan-500
+            transition
+            duration-200
 
-                  text-white
+            hover:bg-slate-800
 
-                  shadow-[0_0_25px_rgba(139,92,246,0.35)]
-
-                  hover:shadow-[0_0_35px_rgba(34,211,238,0.35)]
-                `
-                : `
-                  bg-white/[0.04]
-
-                  text-gray-500
-                `
-            }
-          `}
+            disabled:cursor-not-allowed
+            disabled:bg-slate-200
+            disabled:text-slate-400
+          "
         >
-          {/* Shine Effect */}
-          <div
-            className="
-              absolute
-              inset-0
-
-              bg-gradient-to-b
-              from-white/[0.12]
-              to-transparent
-            "
-          />
-
-          <ArrowUp
-            className="
-              relative
-              z-10
-
-              h-5
-              w-5
-            "
-          />
+          <SendHorizontal className="h-4 w-4" />
         </motion.button>
       </div>
-    </div>
+    </form>
   );
 };
 

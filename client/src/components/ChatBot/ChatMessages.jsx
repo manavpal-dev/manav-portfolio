@@ -35,21 +35,20 @@ const ChatMessages = ({ messages, showTyping }) => {
       initial="hidden"
       animate="visible"
       className="
-        relative
-        z-10
-
         flex-1
 
         overflow-y-auto
 
+        bg-slate-50
+
         px-4
         py-5
 
-        space-y-5
+        space-y-4
 
         scrollbar-thin
-        scrollbar-thumb-white/10
-        scrollbar-track-transparent
+        scrollbar-thumb-slate-300
+        scrollbar-track-slate-100
       "
     >
       {messages.map((message, index) => (

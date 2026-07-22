@@ -19,8 +19,8 @@ const ChatWindow = ({
     <motion.div
       initial={{
         opacity: 0,
-        y: 40,
-        scale: 0.92,
+        y: 24,
+        scale: 0.98,
       }}
       animate={{
         opacity: 1,
@@ -29,12 +29,12 @@ const ChatWindow = ({
       }}
       exit={{
         opacity: 0,
-        y: 20,
-        scale: 0.95,
+        y: 16,
+        scale: 0.98,
       }}
       transition={{
         type: "spring",
-        damping: 18,
+        damping: 22,
         stiffness: 180,
       }}
       className="
@@ -44,112 +44,42 @@ const ChatWindow = ({
         z-50
 
         flex
-        h-[620px]
-        w-[390px]
+        h-[640px]
+        w-[410px]
         flex-col
 
         overflow-hidden
 
-        rounded-[32px]
+        rounded-lg
 
         border
-        border-white/10
+        border-slate-200
 
-        bg-[#060816]/90
+        bg-white
+        text-slate-950
 
-        shadow-[0_20px_120px_rgba(0,0,0,0.7)]
-
-        backdrop-blur-3xl
+        shadow-[0_24px_70px_rgba(15,23,42,0.24)]
 
         max-sm:bottom-0
+        max-sm:left-0
         max-sm:right-0
         max-sm:h-[100dvh]
         max-sm:w-full
         max-sm:rounded-none
       "
     >
-      {/* Gradient Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Top Glow */}
-        <div
-          className="
-            absolute
-            left-1/2
-            top-[-120px]
+      <ChatHeader onClose={onClose} />
 
-            h-[320px]
-            w-[320px]
+      <QuickQuestions onQuickQuestion={onQuickQuestion} isLoading={isLoading} />
 
-            -translate-x-1/2
+      <ChatMessages messages={messages} showTyping={showTyping} />
 
-            rounded-full
-
-            bg-violet-500/15
-
-            blur-3xl
-          "
-        />
-
-        {/* Bottom Glow */}
-        <div
-          className="
-            absolute
-            bottom-[-80px]
-            right-[-40px]
-
-            h-[260px]
-            w-[260px]
-
-            rounded-full
-
-            bg-cyan-500/15
-
-            blur-3xl
-          "
-        />
-
-        {/* Light Reflection */}
-        <div
-          className="
-            absolute
-            inset-0
-
-            bg-gradient-to-b
-            from-white/[0.04]
-            via-transparent
-            to-transparent
-          "
-        />
-      </div>
-
-      {/* Inner Border */}
-      <div
-        className="
-          absolute
-          inset-[1px]
-
-          rounded-[31px]
-
-          border
-          border-white/[0.03]
-        "
+      <ChatInput
+        input={input}
+        setInput={setInput}
+        onSend={onSend}
+        isLoading={isLoading}
       />
-
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col">
-        <ChatHeader onClose={onClose} />
-
-        <QuickQuestions onQuickQuestion={onQuickQuestion} isLoading={isLoading}/>
-
-        <ChatMessages messages={messages} showTyping={showTyping} />
-
-        <ChatInput
-          input={input}
-          setInput={setInput}
-          onSend={onSend}
-          isLoading={isLoading}
-        />
-      </div>
     </motion.div>
   );
 };

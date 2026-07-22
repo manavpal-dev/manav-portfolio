@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Bot } from "lucide-react";
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -29,6 +30,41 @@ const linkifyPlainText = (text) =>
     })
     .join("");
 
+const baseMarkdownClasses = `
+  text-[14px]
+  leading-6
+
+  [&>*:first-child]:mt-0
+  [&>*:last-child]:mb-0
+  [&_a]:break-words
+  [&_a]:font-semibold
+  [&_a]:underline
+  [&_a]:underline-offset-4
+  [&_blockquote]:my-3
+  [&_blockquote]:border-l-2
+  [&_blockquote]:pl-3
+  [&_code]:rounded
+  [&_code]:px-1
+  [&_code]:py-0.5
+  [&_li]:my-1
+  [&_ol]:my-3
+  [&_ol]:list-decimal
+  [&_ol]:pl-5
+  [&_p]:my-2
+  [&_pre]:my-3
+  [&_pre]:max-w-full
+  [&_pre]:overflow-x-auto
+  [&_pre]:rounded-md
+  [&_pre]:border
+  [&_pre]:p-3
+  [&_pre_code]:bg-transparent
+  [&_pre_code]:p-0
+  [&_strong]:font-semibold
+  [&_ul]:my-3
+  [&_ul]:list-disc
+  [&_ul]:pl-5
+`;
+
 const MessageBubble = ({ role, content, timestamp }) => {
   if (!content?.trim()) return null;
 
@@ -43,14 +79,12 @@ const MessageBubble = ({ role, content, timestamp }) => {
   const messageVariants = {
     hidden: {
       opacity: 0,
-      y: 16,
-      scale: 0.96,
+      y: 12,
     },
 
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
     },
   };
 
@@ -58,101 +92,97 @@ const MessageBubble = ({ role, content, timestamp }) => {
     <motion.div
       variants={messageVariants}
       transition={{
-        duration: 0.25,
+        duration: 0.22,
       }}
-      className={`flex ${isAssistant ? "justify-start" : "justify-end"}`}
+      className={`flex items-end gap-2 ${
+        isAssistant ? "justify-start" : "justify-end"
+      }`}
     >
+      {isAssistant && (
+        <div
+          className="
+            mb-5
+            flex
+            h-8
+            w-8
+            shrink-0
+            items-center
+            justify-center
+
+            rounded-md
+
+            border
+            border-slate-200
+
+            bg-white
+
+            text-slate-700
+            shadow-sm
+          "
+        >
+          <Bot className="h-4 w-4" />
+        </div>
+      )}
+
       <div
         className={`
-          relative
-
-          max-w-[92%]
-          md:max-w-[88%]
-
+          max-w-[84%]
           overflow-hidden
 
-          rounded-[26px]
+          rounded-lg
 
-          px-5
-          py-4
+          px-4
+          py-3
 
-          backdrop-blur-xl
+          shadow-sm
 
           ${
             isAssistant
               ? `
                 border
-                border-white/10
+                border-slate-200
 
-                bg-white/[0.04]
+                bg-white
 
-                text-gray-200
-
-                shadow-[0_8px_40px_rgba(0,0,0,0.25)]
+                text-slate-800
               `
               : `
-                bg-gradient-to-br
-                from-violet-500
-                via-fuchsia-500
-                to-cyan-500
+                bg-slate-950
 
                 text-white
-
-                shadow-[0_8px_30px_rgba(139,92,246,0.35)]
               `
           }
         `}
       >
-        {/* Reflection Layer */}
         <div
-          className="
-            absolute
-            inset-0
+          className={`
+            ${baseMarkdownClasses}
 
-            bg-gradient-to-b
-            from-white/[0.05]
-            to-transparent
-          "
-        />
-
-        {/* Message Content */}
-        <div
-          className="
-            relative
-            z-10
-
-            prose
-            prose-invert
-
-            max-w-none
-
-            prose-headings:mb-2
-            prose-headings:mt-4
-
-            prose-p:my-3
-            prose-p:leading-7
-            prose-p:text-[15px]
-
-            prose-headings:text-white
-
-            prose-strong:text-white
-
-            prose-code:text-cyan-300
-
-            prose-ul:my-3
-            prose-ol:my-3
-            prose-li:my-1.5
-            prose-li:pl-1
-
-            prose-pre:border
-            prose-pre:border-white/10
-            prose-pre:bg-black/40
-
-            prose-li:text-gray-200
-
-            prose-blockquote:border-cyan-400/40
-            prose-blockquote:my-3
-          "
+            ${
+              isAssistant
+                ? `
+                  [&_a]:text-blue-700
+                  [&_a]:decoration-blue-300
+                  [&_a:hover]:text-blue-900
+                  [&_blockquote]:border-slate-300
+                  [&_code]:bg-slate-100
+                  [&_code]:text-slate-900
+                  [&_pre]:border-slate-200
+                  [&_pre]:bg-slate-50
+                  [&_strong]:text-slate-950
+                `
+                : `
+                  [&_a]:text-white
+                  [&_a]:decoration-white/60
+                  [&_blockquote]:border-white/35
+                  [&_code]:bg-white/15
+                  [&_code]:text-white
+                  [&_pre]:border-white/15
+                  [&_pre]:bg-white/10
+                  [&_strong]:text-white
+                `
+            }
+          `}
         >
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -166,16 +196,6 @@ const MessageBubble = ({ role, content, timestamp }) => {
                       ? "noopener noreferrer"
                       : undefined
                   }
-                  className="
-                    font-semibold
-                    text-blue-400
-                    underline
-                    underline-offset-4
-                    decoration-blue-400/70
-                    break-words
-                    hover:text-blue-300
-                    hover:decoration-blue-300
-                  "
                 >
                   {children}
                 </a>
@@ -186,14 +206,14 @@ const MessageBubble = ({ role, content, timestamp }) => {
           </ReactMarkdown>
         </div>
 
-        {/* Timestamp */}
         <div
           className={`
-            mt-3
+            mt-2
 
             text-[11px]
+            font-medium
 
-            ${isAssistant ? "text-gray-500" : "text-white/70"}
+            ${isAssistant ? "text-slate-400" : "text-white/65"}
           `}
         >
           {formattedTime}
