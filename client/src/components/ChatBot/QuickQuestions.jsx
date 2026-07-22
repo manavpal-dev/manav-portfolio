@@ -12,9 +12,9 @@ const QuickQuestions = ({ onQuickQuestion, isLoading }) => {
         overflow-x-auto
 
         border-b
-        border-slate-200
+        border-zinc-200
 
-        bg-slate-50
+        bg-zinc-100
 
         px-4
         py-3
@@ -56,9 +56,9 @@ const QuickQuestions = ({ onQuickQuestion, isLoading }) => {
               rounded-md
 
               border
-              border-slate-200
+              border-zinc-200
 
-              bg-white
+              bg-zinc-300
 
               px-3.5
               py-2
@@ -66,16 +66,16 @@ const QuickQuestions = ({ onQuickQuestion, isLoading }) => {
               text-[13px]
               font-medium
 
-              text-slate-700
+              text-zinc-700
 
               shadow-sm
 
               transition-all
               duration-200
 
-              hover:border-slate-300
-              hover:bg-slate-100
-              hover:text-slate-950
+              hover:border-zinc-400
+              hover:bg-zinc-400
+              hover:text-zinc-950
             "
         >
           {item}

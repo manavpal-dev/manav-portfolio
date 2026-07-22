@@ -53,9 +53,9 @@ const ChatWindow = ({
         rounded-lg
 
         border
-        border-slate-200
+        border-zinc-200
 
-        bg-white
+        bg-zinc-900
         text-slate-950
 
         shadow-[0_24px_70px_rgba(15,23,42,0.24)]

@@ -25,7 +25,7 @@ const ChatInput = ({ input, setInput, onSend, isLoading }) => {
         border-t
         border-slate-200
 
-        bg-white
+        bg-zinc-300
 
         p-4
       "
@@ -39,9 +39,9 @@ const ChatInput = ({ input, setInput, onSend, isLoading }) => {
           rounded-lg
 
           border
-          border-slate-200
+          border-zinc-200
 
-          bg-slate-50
+          bg-zinc-50
 
           px-3
           py-2.5
@@ -49,13 +49,13 @@ const ChatInput = ({ input, setInput, onSend, isLoading }) => {
           transition
           duration-200
 
-          focus-within:border-slate-400
-          focus-within:bg-white
+          focus-within:border-zinc-400
+          focus-within:bg-zinc-300
           focus-within:ring-4
-          focus-within:ring-slate-950/5
+          focus-within:ring-zinc-950/5
         "
       >
-        <MessageSquare className="h-4 w-4 shrink-0 text-slate-400" />
+        <MessageSquare className="h-4 w-4 shrink-0 text-zinc-400" />
 
         <input
           ref={inputRef}

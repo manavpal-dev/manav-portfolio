@@ -10,9 +10,9 @@ const ChatHeader = ({ onClose }) => {
         justify-between
 
         border-b
-        border-slate-200
+        border-zinc-200
 
-        bg-white
+        bg-zinc-300
 
         px-5
         py-4
@@ -121,19 +121,19 @@ const ChatHeader = ({ onClose }) => {
           rounded-md
 
           border
-          border-slate-200
+          border-zinc-200
 
-          bg-white
+          bg-zinc-300
 
-          text-slate-500
+          text-zinc-500
           shadow-sm
 
           transition-all
           duration-200
 
-          hover:border-slate-300
-          hover:bg-slate-50
-          hover:text-slate-950
+          hover:border-zinc-400
+          hover:bg-zinc-400
+          hover:text-zinc-950
         "
       >
         <X className="h-4 w-4" />

@@ -112,11 +112,11 @@ const MessageBubble = ({ role, content, timestamp }) => {
             rounded-md
 
             border
-            border-slate-200
+            border-zinc-200
 
-            bg-white
+            bg-zinc-300
 
-            text-slate-700
+            text-zinc-700
             shadow-sm
           "
         >
@@ -140,14 +140,14 @@ const MessageBubble = ({ role, content, timestamp }) => {
             isAssistant
               ? `
                 border
-                border-slate-200
+                border-zinc-200
 
-                bg-white
+                bg-zinc-300
 
-                text-slate-800
+                text-zinc-800
               `
               : `
-                bg-slate-950
+                bg-zinc-950
 
                 text-white
               `

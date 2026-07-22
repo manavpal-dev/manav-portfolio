@@ -39,7 +39,7 @@ const ChatMessages = ({ messages, showTyping }) => {
 
         overflow-y-auto
 
-        bg-slate-50
+        bg-zinc-200
 
         px-4
         py-5
@@ -47,8 +47,8 @@ const ChatMessages = ({ messages, showTyping }) => {
         space-y-4
 
         scrollbar-thin
-        scrollbar-thumb-slate-300
-        scrollbar-track-slate-100
+        scrollbar-thumb-zinc-300
+        scrollbar-track-zinc-100
       "
     >
       {messages.map((message, index) => (

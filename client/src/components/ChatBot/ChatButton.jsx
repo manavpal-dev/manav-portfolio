@@ -45,7 +45,7 @@ const ChatButton = ({ onOpen }) => {
         border
         border-slate-200
 
-        bg-white
+        bg-zinc-300
 
         px-3.5
 

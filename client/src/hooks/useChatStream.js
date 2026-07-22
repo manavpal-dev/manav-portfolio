@@ -77,7 +77,9 @@ export const useChatStream = () => {
       });
 
       if (!response.ok) {
-        throw new Error(`Chat API request failed with status ${response.status}.`);
+        throw new Error(
+          `Chat API request failed with status ${response.status}.`,
+        );
       }
 
       if (!response.body) {
@@ -128,7 +130,9 @@ export const useChatStream = () => {
     } catch (error) {
       console.error("Streaming Error:", error);
 
-      setMessages((prev) => replaceLastAssistantMessage(prev, CHAT_ERROR_MESSAGE));
+      setMessages((prev) =>
+        replaceLastAssistantMessage(prev, CHAT_ERROR_MESSAGE),
+      );
     } finally {
       if (timeoutId) {
         window.clearTimeout(timeoutId);
