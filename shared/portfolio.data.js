@@ -1,6 +1,5 @@
 // My CV Link
 export const cv = "";
-// "https://docs.google.com/document/d/1MwrUsJe9s1oZjcDnNfZsv-rkBGrT2oKe7KqA2l5nSZ0/edit?usp=sharing"; // Keeping original CV link
 
 // Social Media (Unchanged)
 export const socialMedia = {
@@ -124,7 +123,7 @@ export const experiences = [
     img: prakharLogo,
     role: "Full Stack Developer",
     company: "Prakhar Tech World Private Limited",
-    date: "July 2025 - Present",
+    date: "July 2025 - June 2026",
     points: [
       "Developed scalable full-stack web applications using Next.js, React.js, Angular, Node.js, and MongoDB for business clients across multiple domains.",
       "Engineered a real-time trading and portfolio risk management platform using Angular, Node.js, TypeScript, and Zerodha APIs, delivering live market insights, futures forecasting, and secure rate-limited data processing.",
